@@ -1,0 +1,73 @@
+body {
+	background-image: url(fondo.gif);
+	background-position: center center;
+	background-repeat: no-repeat;   /* ESTILO CUEPO PAGINA */
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #66999;
+}
+.carta {
+  text-align: center;
+  width: 140px;
+  height:140px;	/* ESTILO CARTA */
+}
+table{
+	position:absolute;
+	left:100px; /* ESTILO TABLA */
+	top:150px;
+}
+.boton{
+  width:150px;
+  height:150px;
+  background-color:#13FFED; /* ESTILO PARA FORMAR EL BOTON */
+  margin: 340px;
+  padding: 30px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  font-size:26px;
+  font-weight: bold;
+  font-family: Comic Sans MS;
+  text-transform: uppercase;
+  float:left;
+}
+.boton:hover{
+  opacity: 0.50;
+  -moz-opacity: .50; /* ESTILO EFECTO AL TOCAR EL BOTÓN */
+  filter:alpha (opacity=30);
+}
+.scores {
+	font-size:22px;
+	font-family: Comic Sans MS;
+	font-weight: bold;
+	color: #DD9EFF;
+	position:absolute; /* ESTILO Y POSICIÓN PARRAFO DE PARES ENCONTRADOS */
+	left:1050px;
+	top: 220px;
+}
+.sc {
+	font-size:22px;
+	font-family: Comic Sans MS;
+	font-weight: bold;
+	color: #DD9EFF; /* ESTILO Y POSICIÓN PARRAFO DE CLICKS TOTALES */
+	position:absolute;
+	left:1050px;
+	top: 260px;
+}
+.sco {
+	font-size:22px;
+	font-family: Comic Sans MS; /* ESTILO Y POSICIÓN PARRAFO DE CLICKS ACTIVOS */
+	font-weight: bold;
+	color: #DD9EFF;
+	position:absolute;
+	left:1050px;
+	top: 310px;
+}
+.wiin {
+	font-size:25px;
+	font-family: Comic Sans MS; /* ESTILO Y POSICIÓN PARRAFO GANASTE */
+	font-weight: bold;
+	color: #FFD413;
+	position:absolute;
+	left:1050px;
+	top: 350px;
+}
