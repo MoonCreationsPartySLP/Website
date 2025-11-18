@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Invitación - Tu Evento</title>
+  <style>
+    :root{--accent:#8b5cf6;--bg:#fbfbfc;--card:#fff;}
+    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Arial;margin:0}
+    body{background:linear-gradient(180deg,#f6f7fb,var(--bg));padding:24px}
+    .container{max-width:920px;margin:0 auto}
+    .card{background:var(--card);border-radius:14px;box-shadow:0 8px 30px rgba(20,20,40,0.06);overflow:hidden;margin-bottom:20px}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:0}
+    @media(max-width:880px){ .hero{grid-template-columns:1fr} .hero-img{height:240px} }
+    .hero-left{padding:32px}
+    .title{font-size:28px;font-weight:700;margin-bottom:6px}
+    .subtitle{color:#555;margin-bottom:16px}
+    .event-info{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .pill{background:#f3f4f6;padding:10px 12px;border-radius:10px;font-size:14px}
+    .hero-img{background-size:cover;background-position:center;height:100%}
+    .actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;background:var(--accent);color:white;font-weight:600}
+    .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(139,92,246,0.12)}
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media(max-width:880px){.two-col{grid-template-columns:1fr}}
+    .rsvp-card{padding:18px;border-radius:12px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+    label{display:block;font-size:13px;margin:8px 0 6px}
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e7ee}
+    .gallery{display:flex;gap:8px;flex-wrap:wrap}
+    .gallery img{width:120px;height:90px;object-fit:cover;border-radius:8px}
+    footer{font-size:13px;color:#666;text-align:center;padding:12px}
+    .printable{display:none}
+    @media print{body{background:white} .no-print{display:none} .printable{display:block}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card hero">
+      <div class="hero-left">
+        <div class="title">Boda de Ana & Luis</div>
+        <div class="subtitle">Sábado 20 de junio • 6:00 PM • Jardín La Hacienda</div>
+
+        <p>Nos encantaría que nos acompañes a celebrar. Favor de confirmar tu asistencia y número de acompañantes.</p>
+
+        <div class="event-info">
+          <div class="pill">Fecha: 20 jun 2026</div>
+          <div class="pill">Hora: 18:00</div>
+          <div class="pill">Lugar: Jardín La Hacienda, SLP</div>
+        </div>
+
+        <div class="actions no-print">
+          <button class="btn" id="addCalendar">Añadir a calendario</button>
+          <button class="btn secondary" id="downloadPDF">Descargar PDF</button>
+          <button class="btn secondary" onclick="window.open('https://maps.google.com','_blank')">Ver en mapa</button>
+        </div>
+      </div>
+
+      <div class="hero-img" style="background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=60')"></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="card" style="padding:20px">
+          <h3>Información</h3>
+          <p>Habrá estacionamiento en la entrada. Código de vestimenta: formal casual.</p>
+
+          <h4>Galería</h4>
+          <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=400&q=60">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=60">
+            <img src="https://images.unsplash.com/photo-1508873699372-7ae5b0b5a2f8?auto=format&fit=crop&w=400&q=60">
+          </div>
+        </div>
+
+        <div class="card" style="padding:20px;margin-top:14px">
+          <h4>Notas</h4>
+          <p>Si necesitas opciones de menú especiales, contáctanos a: ejemplo@correo.com</p>
+        </div>
+      </div>
+
+      <div class="rsvp-card">
+        <h3>RSVP</h3>
+
+        <form id="rsvpForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <label>Nombre</label>
+          <input name="name" required>
+
+          <label>Correo (opcional)</label>
+          <input name="email" type="email">
+
+          <label>Asistirás?</label>
+          <select name="attend" required>
+            <option value="">Selecciona...</option>
+            <option value="sí">Sí, asistiré</option>
+            <option value="no">No podré asistir</option>
+            <option value="talvez">Tal vez</option>
+          </select>
+
+          <label>Acompañantes (número)</label>
+          <input name="guests" type="number" min="0" value="0">
+
+          <label>Mensaje (opcional)</label>
+          <textarea name="message" rows="3"></textarea>
+
+          <button class="btn" type="submit" style="margin-top:12px">Enviar RSVP</button>
+        </form>
+
+      </div>
+    </div>
+
+    <footer class="no-print">Invitación creada con ❤️</footer>
+
+    <div class="printable" id="printable">
+      <h2>Boda de Ana & Luis</h2>
+      <p>20 de junio, 18:00 — Jardín La Hacienda</p>
+    </div>
+  </div>
+
+<script>
+document.getElementById('addCalendar').addEventListener('click', function(){
+  const ics = [
+    'BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT',
+    'SUMMARY:Boda de Ana & Luis','DTSTART:20260620T180000',
+    'DTEND:20260620T213000','LOCATION:Jardín La Hacienda, San Luis Potosí',
+    'DESCRIPTION:Acompáñanos a celebrar','END:VEVENT','END:VCALENDAR'
+  ].join('\n');
+
+  const blob = new Blob([ics], {type:'text/calendar'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'evento.ics'; a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('downloadPDF').addEventListener('click', ()=> window.print());
+</script>
+
+</body>
+</html>
